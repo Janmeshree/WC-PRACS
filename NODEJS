@@ -1,0 +1,125 @@
+// Set up the folder (Run these commands in the terminal)
+mkdir random-joke-generator
+cd random-joke-generator
+npm init -y
+
+
+// Create server.js and paste this code 👇
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+const jokes = [
+  "Why did the scarecrow win an award? Because he was outstanding in his field!",
+  "I told my computer I needed a break, and it said: 'No problem — I’ll go to sleep!'",
+  "Why don’t skeletons fight each other? They don’t have the guts.",
+  "Why was the math book sad? It had too many problems.",
+  "I tried to catch fog yesterday. Mist.",
+  "Parallel lines have so much in common. It’s a shame they’ll never meet.",
+  "Why did the coffee file a police report? It got mugged!"
+];
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    fs.readFile(path.join(__dirname, 'index.html'), (err, data) => {
+      if (err) {
+        res.writeHead(500);
+        res.end('Error loading file');
+      } else {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+      }
+    });
+  } else if (req.url === '/script.js') {
+    fs.readFile(path.join(__dirname, 'script.js'), (err, data) => {
+      if (err) {
+        res.writeHead(404);
+        res.end('File not found');
+      } else {
+        res.writeHead(200, { 'Content-Type': 'application/javascript' });
+        res.end(data);
+      }
+    });
+  } else if (req.url === '/joke') {
+    const randomIndex = Math.floor(Math.random() * jokes.length);
+    const joke = jokes[randomIndex];
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ joke }));
+  } else {
+    res.writeHead(404);
+    res.end('Page not found');
+  }
+});
+
+server.listen(3000, () => {
+  console.log('Server running at http://localhost:3000');
+});
+
+
+// Create index.html and paste this code 👇
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Joke Generator</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', sans-serif;
+    }
+
+    #joke-box {
+      background: white;
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 400px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="joke-box">
+    <h2>😂 Random Joke Generator 😂</h2>
+    <p id="joke">Click the button to get a joke!</p>
+    <button onclick="getJoke()">Get Joke</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+// Create script.js and paste this code 👇
+async function getJoke() {
+  const response = await fetch('/joke');
+  const data = await response.json();
+  document.getElementById('joke').textContent = data.joke;
+}
+
+
+// Run this command in the terminal for output 
+node server.js
+
+// Then open your browser at
+http://localhost:3000
