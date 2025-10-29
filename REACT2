@@ -1,0 +1,122 @@
+// Commands to create app
+npx create-react-app digital-clock
+cd digital-clock
+
+
+
+// Write this code in src/App.js
+
+import React, { useState, useEffect } from "react";
+import "./App.css";
+
+function App() {
+  const [time, setTime] = useState(new Date());
+  const [seconds, setSeconds] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+
+  // Update digital clock every second
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Timer functionality
+  useEffect(() => {
+    let interval;
+    if (isRunning) {
+      interval = setInterval(() => setSeconds((s) => s + 1), 1000);
+    } else if (!isRunning && seconds !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
+  const formatTime = (num) => (num < 10 ? `0${num}` : num);
+
+  return (
+    <div className="App">
+      <div className="clock-card">
+        <h1>🕒 Digital Clock</h1>
+        <h2>
+          {formatTime(time.getHours())} : {formatTime(time.getMinutes())} :{" "}
+          {formatTime(time.getSeconds())}
+        </h2>
+      </div>
+
+      <div className="timer-card">
+        <h2>⏱ Timer</h2>
+        <h3>{formatTime(Math.floor(seconds / 60))}:{formatTime(seconds % 60)}</h3>
+        <div className="buttons">
+          <button onClick={() => setIsRunning(true)}>Start</button>
+          <button onClick={() => setIsRunning(false)}>Stop</button>
+          <button onClick={() => setSeconds(0)}>Reset</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+// Write this code in src/App.css
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #1d2b64, #f8cdda);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  text-align: center;
+  color: white;
+}
+
+.clock-card, .timer-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  margin: 20px;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h2, h3 {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+button {
+  margin: 0 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #1d2b64;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #1d2b64;
+  color: white;
+}
+
+
+
+// Run this command for output
+npm start
