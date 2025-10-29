@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #00695c;
+        }
+        table {
+            
+            width: 60%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #b2dfdb;
+            width: 30%;
+        }
+        img {
+            display: block;
+            margin: 15px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 5px gray;
+        }
+        ul {
+            background-color: #f1f8e9;
+            width: 50%;
+            margin: 0 auto 20px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            list-style-type: square;
+        }
+        form {
+            width: 60%;
+            margin: 0 auto;
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 95%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #555;
+        }
+        a {
+            color: #0288d1;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Information Page</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>Janmeshree Gaokar</td>
+        </tr>
+        <tr>
+            <th>Roll No</th>
+            <td>21AIDS123</td>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td>Artificial Intelligence and Data Science</td>
+        </tr>
+        <tr>
+            <th>College</th>
+            <td>DMCE Engineering College</td>
+        </tr>
+    </table>
+
+    <img src="https://via.placeholder.com/150" alt="Student Photo" height="150" width="150">
+
+    <ul>
+        <li>Coding and Web Development</li>
+        <li>Reading Books</li>
+        <li>Music and Traveling</li>
+    </ul>
+
+    <p style="text-align:center; width:60%; margin:auto;">
+        I am a passionate engineering student currently pursuing a degree in 
+        <b>Artificial Intelligence and Data Science</b>. I enjoy learning new technologies 
+        and working on projects that combine creativity and problem-solving.
+    </p>
+
+    <p style="text-align:center; margin-top:10px;">
+        <a href="mailto:student@example.com">Email Me</a> |
+        <a href="https://www.dmce.ac.in" target="_blank">Visit College Website</a>
+    </p>
+
+    <form>
+        <h3 style="text-align:center">Do share your opinions about this student profile!!!</h3>
+        <label>Name:</label><br>
+        <input type="t;ext" name="name" required><br>
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br>
+        <label>Message:</label><br>
+        <textarea rows="4"></textarea><br>
+        <input type="submit" value="Submit Feedback">
+    </form>
+
+    <footer>
+        <small>&copy; 2025 Student Information Page | Created by Janmeshree</small>
+    </footer>
+
+</body>
+</html>
