@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Goa - Tourism Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #fffde7, #e1f5fe);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #00796b;
+        }
+        .intro {
+            text-align: center;
+            width: 70%;
+            margin: 0 auto 20px;
+        }
+        img {
+            display: block;
+            margin: 15px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 8px gray;
+        }
+        ul, ol {
+            width: 60%;
+            margin: 10px auto;
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        ul li, ol li {
+            margin: 5px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #b2ebf2;
+        }
+        iframe {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            border: 2px solid #009688;
+        }
+        form {
+            width: 60%;
+            margin: 30px auto;
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 95%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #555;
+        }
+        a {
+            color: #0288d1;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Explore Goa - The Pearl of the Indian Ocean</h1>
+
+    <div class="intro">
+        <p>
+            Welcome to <b>Goa</b> — India’s favorite travel destination! Known for its beautiful beaches,
+            Portuguese architecture, and vibrant nightlife, Goa offers the perfect mix of
+            relaxation and adventure.
+        </p>
+    </div>
+
+    <img src="https://imgcld.yatra.com/ytimages/image/upload/v1517481987/AdvNation/ANN_DES67/ann_top_Goa_loQGrP.jpg" 
+         alt="Goa Beach" width="400" height="250">
+
+    <h2 style="text-align:center">Top Tourist Attractions</h2>
+    <ol>
+        <li>Baga Beach</li>
+        <li>Fort Aguada</li>
+        <li>Dudhsagar Waterfalls</li>
+        <li>Basilica of Bom Jesus</li>
+        <li>Calangute Beach</li>
+    </ol>
+
+    <h2 style="text-align:center">Popular Local Foods</h2>
+    <ul>
+        <li>Goan Fish Curry</li>
+        <li>Prawn Balchao</li>
+        <li>Bebinca (Goan Dessert)</li>
+        <li>Vindaloo</li>
+    </ul>
+
+    <h2 style="text-align:center">Travel Options</h2>
+    <table>
+        <tr>
+            <th>Mode</th>
+            <th>Approx. Cost (₹)</th>
+            <th>Travel Time (from Mumbai)</th>
+        </tr>
+        <tr>
+            <td>Train</td>
+            <td>800</td>
+            <td>9 Hours</td>
+        </tr>
+        <tr>
+            <td>Flight</td>
+            <td>3000</td>
+            <td>1 Hour</td>
+        </tr>
+        <tr>
+            <td>Bus</td>
+            <td>1000</td>
+            <td>12 Hours</td>
+        </tr>
+    </table>
+
+    <h2 style="text-align:center">Watch Goa's Beauty</h2>
+    <iframe width="420" height="250" 
+        src="https://www.youtube.com/embed/m_DQFAJdC7g" 
+        title="Goa Tourism Video">
+    </iframe>
+
+    <form>
+        <h3 style="text-align:center">Tourist Feedback Form</h3>
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br>
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br>
+        <label>Favorite Place in Goa:</label><br>
+        <input type="text" name="place"><br>
+        <label>Your Experience:</label><br>
+        <textarea rows="4"></textarea><br>
+        <input type="submit" value="Submit Feedback">
+    </form>
+
+    <footer>
+        <p>For more details, visit 
+            <a href="https://goa-tourism.com" target="_blank">Goa Tourism Website</a>
+        </p>
+        <small>&copy; 2025 Explore Goa | Created by Janmeshree</small>
+    </footer>
+
+</body>
+</html>
