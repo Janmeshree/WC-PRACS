@@ -1,0 +1,111 @@
+// Commands to create app
+npx create-react-app random-quote
+cd random-quote
+
+
+
+// Write this code in src/App.js
+
+import React, { useState } from "react";
+import "./App.css";
+
+function App() {
+  const quotes = [
+    { quote: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+    { quote: "Don’t watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+    { quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+    { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+    { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+    { quote: "Dream big. Work hard. Stay humble.", author: "Unknown" },
+    { quote: "Happiness is not by chance, but by choice.", author: "Jim Rohn" },
+    { quote: "If you want to lift yourself up, lift up someone else.", author: "Booker T. Washington" }
+  ];
+
+  const [quote, setQuote] = useState(quotes[0]);
+
+  const generateQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setQuote(quotes[randomIndex]);
+  };
+
+  return (
+    <div className="App">
+      <h1>💭 Random Quote Generator</h1>
+      <div className="quote-box">
+        <p className="quote">"{quote.quote}"</p>
+        <p className="author">— {quote.author}</p>
+        <button onClick={generateQuote}>New Quote</button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+// Write this code in src/App.css
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #74ABE2, #5563DE);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.quote-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.quote {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  line-height: 1.5em;
+}
+
+.author {
+  font-style: italic;
+  font-size: 1em;
+}
+
+button {
+  background: #fff;
+  color: #5563DE;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #5563DE;
+  color: white;
+}
+
+
+
+// Run this command for output
+npm start
